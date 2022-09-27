@@ -5,9 +5,21 @@ import React, { useState, useEffect } from "react";
 
 const UseEffectCleanup = () => {
   const [size, setSize] = useState(window.innerWidth);
-  console.log(size);
-  useEffect();
-  return <h2>useEffectttt cleanup</h2>;
+  // console.log(size);
+  const checksize = () => {
+    setSize(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", checksize);
+  });
+  return (
+    <>
+      <div>
+        <h1>window</h1>
+        <h2>{size} px</h2>
+      </div>
+    </>
+  );
 };
 
 export default UseEffectCleanup;
